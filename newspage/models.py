@@ -16,6 +16,12 @@ class News(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     teaser = models.TextField(blank=True)
 
+    class Meta:
+        ordering = ["-posting_date"]
+
+    def __str__(self):
+        return f"{self.title} | created by {self.author}"
+
 
 
 class Comment(models.Model):
@@ -28,3 +34,10 @@ class Comment(models.Model):
     body = models.TextField()
     approved = models.BooleanField(default=False)
     added_on = models.DateTimeField(auto_now_add=True)
+
+
+    class Meta:
+        ordering = ["added_on"]
+
+    def __str__(self):
+        return f"Comment with the content of '{self.body}' written by {self.author}"

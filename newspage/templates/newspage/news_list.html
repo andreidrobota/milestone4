@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech News Hippo</title>
+</head>
+<body>
+    <h1>Tech News Hippo List</h1>
+    {% for post in object_list %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.teaser }}</p>
+    <p>Writter: {{ post.author }}</p>
+    {% endfor %}
+</body>
+</html>
