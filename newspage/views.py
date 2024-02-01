@@ -6,4 +6,5 @@ from .models import News
 
 class NewsList(generic.ListView):
     queryset = News.objects.filter(status=1)
-    template_name = "news_list.html"
+    template_name = "newspage/index.html"
+    paginate_by = 3
