@@ -3,9 +3,20 @@
 {% load static %}
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"><img src="{% static 'images/Placeholder.png' %}" alt=""></div>
-        <div class="col-md-4"></div>
+        <div class="col-md-12 text-center"><img id="placeholder-image"
+            src="{% static 'images/Placeholder.png' %}" alt="placeholder"></div>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>{{ about.title }}</h2>
+            {{ about.content | safe }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-right">
+            <p class="text-end">Posted by {{ about.author }} on {{ about.renewed_on }}</p>
+        </div>
     </div>
 </div>
 {% endblock content %}
