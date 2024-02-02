@@ -1,4 +1,5 @@
 {% url 'home' as home_url %}
+{% url 'about' as about_url %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@
                             href="{% url 'home' %}">Home<i class="fa-solid fa-house"></i></a>
                     </li>
                     <li>
-                        <a class="nav-link text-white" href="#" aria-current="page">About<i class="fa-solid fa-question"></i></a>
+                        <a class="nav-link text-white {% if request.path == about_url %}active{% endif %}" href="{% url 'about' %}" aria-current="page">About Us<i class="fa-solid fa-question"></i></a>
                     </li>
                     <li>
                         <a class="nav-link text-white" href="" aria-current="page">Register<i class="fa-solid fa-check"></i></a>
