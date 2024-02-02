@@ -10,6 +10,10 @@
     background-color: rgba(81,171,154, .4);
 }
 
+.main-strong-bg{
+    background-color: rgba(81,171,154, .8);
+}
+
 footer a:hover {
     font-weight: bolder;
     font-size: larger;
@@ -21,4 +25,12 @@ nav a:hover {
 
 .noHover {
     pointer-events: none;
+}
+
+.good-align {
+    padding-top: 70px;
+}
+
+.better-height {
+    height: auto;
 }
