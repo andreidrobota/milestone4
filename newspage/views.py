@@ -7,13 +7,14 @@ from .forms import CommentForm
 
 # Create your views here.
 
+
 class NewsList(generic.ListView):
     queryset = News.objects.filter(status=1)
     template_name = "newspage/index.html"
     paginate_by = 3
 
 
-def news_detail(request,slug):
+def news_detail(request, slug):
     queryset = News.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-added_on")
@@ -32,27 +33,27 @@ def news_detail(request,slug):
 
     comment_form = CommentForm()
 
-
     return render(
-        request, 
+        request,
         "newspage/news_detail.html",
-         {"post": post,
-         "comments": comments,
-         "comment_count": comment_count,
-         "comment_form": comment_form,
+        {
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form,
          },
          )
 
 
 def edit_comment(request, slug, comment_id):
     """
-    comment editing 
+    comment editing
     """
     if request.method == "POST":
 
         queryset = News.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comment = get_object_or_404(Comment, pk = comment_id)
+        comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
 
         if comment_form.is_valid() and comment.author == request.user:
@@ -60,27 +61,35 @@ def edit_comment(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Your comment has been successfully updated!')
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Your comment has been successfully updated!')
         else:
-            messages.add_message(request, messages.ERROR, "An error occured updating your comment!")
-    
+            messages.add_message(
+                request, messages.ERROR,
+                "An error occured updating your comment!")
+
     return HttpResponseRedirect(reverse('news_detail', args=[slug]))
 
 
 def delete_comment(request, slug, comment_id):
     """
-    comment deleting 
+    comment deleting
     """
     if request.method == "POST":
 
         queryset = News.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comment = get_object_or_404(Comment, pk = comment_id)
+        comment = get_object_or_404(Comment, pk=comment_id)
 
         if comment.author == request.user:
             comment.delete()
-            messages.add_message(request, messages.SUCCESS, 'Your comment has been successfully deleted!')
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Your comment has been successfully deleted!')
         else:
-            messages.add_message(request, messages.ERROR, "An error occured deleting your comment!")
-    
+            messages.add_message(
+                request, messages.ERROR,
+                "An error occured deleting your comment!")
+
     return HttpResponseRedirect(reverse('news_detail', args=[slug]))
