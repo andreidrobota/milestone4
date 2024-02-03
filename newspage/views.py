@@ -65,3 +65,22 @@ def edit_comment(request, slug, comment_id):
             messages.add_message(request, messages.ERROR, "An error occured updating your comment!")
     
     return HttpResponseRedirect(reverse('news_detail', args=[slug]))
+
+
+def delete_comment(request, slug, comment_id):
+    """
+    comment deleting 
+    """
+    if request.method == "POST":
+
+        queryset = News.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Comment, pk = comment_id)
+
+        if comment.author == request.user:
+            comment.delete()
+            messages.add_message(request, messages.SUCCESS, 'Your comment has been successfully deleted!')
+        else:
+            messages.add_message(request, messages.ERROR, "An error occured deleting your comment!")
+    
+    return HttpResponseRedirect(reverse('news_detail', args=[slug]))

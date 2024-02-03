@@ -44,3 +44,12 @@ nav a:hover {
 .red-text {
     color: red
 }
+
+.color-brown {
+    color:  #AB6B51!important;
+}
+
+
+.bigger-font {
+    font-size: 35px;
+}
