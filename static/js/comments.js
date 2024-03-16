@@ -3,9 +3,9 @@ const textBody = document.getElementById("id_body");
 const formComment = document.getElementById("commentForm");
 const buttonSubmit = document.getElementById("submitButton")
 
-const modalDelete = new bootstrap.Modal(document.getElementById("deleteModal"));
-const buttonDelete = document.getElementsByClassName("btn-delete");
-const confirmDelete = document.getElementById("deleteConfirm");
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+const deleteButtons = document.getElementsByClassName("btn-delete");
+const deleteConfirm = document.getElementById("deleteConfirm");
 
 /** Edit button */
 
@@ -20,10 +20,10 @@ for (let button of buttonEdit) {
 }
 
 /** Delete button */
-for (let button of buttonDelete) {
+for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
         let commentId = e.target.getAttribute("comment_id");
-        confirmDelete.hred = `delete_comment/${commentId}`;
-        modalDelete.show();
-    })
+        deleteConfirm.href = `delete_comment/${commentId}`;
+        deleteModal.show();
+    });
 }

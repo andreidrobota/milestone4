@@ -42,5 +42,4 @@ class Comment(models.Model):
         ordering = ["added_on"]
 
     def __str__(self):
-        return 
-        f"Comment with the content of '{self.body}' written by {self.author}"
+        return f"Comment with the content of '{self.body}' written by {self.author}"

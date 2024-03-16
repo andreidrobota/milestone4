@@ -9,8 +9,13 @@ class NewsAdmin(SummernoteModelAdmin):
     search_fields = ['title']
     list_filter = ('status','posting_date',)
     prepopulated_field = {'slug': ('title',)}
-    summernote_dields = ('content',)
+    summernote_fields = ('content',)
+
+@admin.register(Comment)
+class CommentAdmin(SummernoteModelAdmin):
+
+    list_display = ('post','added_on', 'approved')
 
 
 # Register your models here.
-admin.site.register(Comment)
+# admin.site.register(Comment)
