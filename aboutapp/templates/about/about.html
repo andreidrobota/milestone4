@@ -3,8 +3,8 @@
 {% load static %}
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-12 text-center"><img id="placeholder-image"
-            src="{% static 'images/Placeholder.png' %}" alt="placeholder"></div>
+        <div class="col-md-12 text-center"><img id="placeholder-image" src="{% static 'images/Placeholder.png' %}"
+                alt="placeholder"></div>
         <hr>
     </div>
     <div class="row">
@@ -13,10 +13,37 @@
             {{ about.content | safe }}
         </div>
     </div>
+    <!-- Work with us button and modal -->
     <div class="row">
-        <div class="col text-right">
-            <p class="text-end">Posted by {{ about.author }} on {{ about.renewed_on }}</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#workModal">
+            Work with us
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="workModal" tabindex="-1" aria-labelledby="workModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="workModalLabel">Want to work with us? Take your time and complete the form</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+<div class="row">
+    <div class="col text-right">
+        <p class="text-end">Posted by {{ about.author }} on {{ about.renewed_on }}</p>
+    </div>
+</div>
 </div>
 {% endblock content %}
