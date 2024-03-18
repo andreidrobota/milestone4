@@ -3,6 +3,10 @@ const textBody = document.getElementById("id_body");
 const formComment = document.getElementById("commentForm");
 const buttonSubmit = document.getElementById("submitButton")
 
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+const deleteButtons = document.getElementsByClassName("btn-delete");
+const deleteConfirm = document.getElementById("deleteConfirm");
+
 /** Edit button */
 
 for (let button of buttonEdit) {
