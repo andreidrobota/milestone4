@@ -18,10 +18,22 @@
 
 ## Testing
 
+
 ### Validator Testing
 
-- No errors returned from [W3C Validator](https://validator.w3.org/)
+- Errors returned from [W3C Validator](https://validator.w3.org/), because of the summernotefield content automatically generated in the page ![alt Errors in the validator because Summernote](./static/images/css%20errors%20because%20summernote.png)
 - No error returned from [Python Linter](https://pep8ci.herokuapp.com/#)
+- No error returned from [W3C CSS](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fnews-page-andrei-c73ebb1ea046.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- The site is well responsive [Responsive Website Design Tester](https://responsivedesignchecker.com/checker.php?url=https%3A%2F%2F8000-andreidrobot-milestone4-8mdzc6ulsja.ws-eu110.gitpod.io%2F&width=1400&height=700)
+
+### Manual Testing
+
+ - All the Elements in the nav bar work aswell as the styling ![alt Style for the nav bar](./static/images/style%20for%20nav%20bar.png)
+ - All the Button Elements are properly linked up with their attribute ![alt Before Click on the Next Button](./static/images/next%20button%201.png) ![alt After Click on next Button](./static/images/next%20button%202.png)
+ - All the Elements in the Admin Panel work without Server Errors
+ - All the Html is rendering properly
+ - All the CRUD functionality works as intended ![alt CRUD functionality 1](./static/images/CRUD%201.png)
+
 
 ### Automated Testing 
 
@@ -30,7 +42,6 @@
 ### Unfixed Bugs
 
 - List markers on register page not disappearing ![alt Register Marker Bug](./static/images/register%20marker%20bug.png)
-
 
 ## Deployment
 
