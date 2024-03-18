@@ -92,29 +92,3 @@ def delete_comment(request, slug, comment_id):
                 "An error occured deleting your comment!")
 
     return HttpResponseRedirect(reverse('news_detail', args=[slug]))
-
-
-def submit_work_request(request):
-    """
-    Form submission
-
-    """
-
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        about_me = request.POST.get('about_me')
-        why_us = request.POST.get('why_us')
-
-        if name and email and about_me and why_us:
-            # Create a new WorkRequest object and save it to the database
-            work_request = WorkRequest(
-                    name=name, email=email, about_me=about_me, why_us=why_us)
-            work_request.save()
-
-            return HttpResponse("Form submitted successfully!")
-        else:
-            return HttpResponse(
-                "Form submission failed. Please provide all required fields.")
-
-    return HttpResponse("Invalid request method.")
