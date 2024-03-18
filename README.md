@@ -25,7 +25,7 @@
 
 ### Automated Testing 
 
-- No errors retuned from the automated tests included
+- No errors retuned from the automated tests included ![alt Automated tests in console](./static/images/automatedtests.png)
 
 ### Unfixed Bugs
 
