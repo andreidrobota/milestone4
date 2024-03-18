@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 class AboutApp(models.Model):
     title = models.CharField(max_length=150)
     content = models.TextField()

@@ -87,3 +87,9 @@ nav a:hover {
 .margin-top{
     margin-top: 100px;
 }
+
+/* Buttons */
+
+.btn-work {
+    margin-bottom: 10px;
+}
